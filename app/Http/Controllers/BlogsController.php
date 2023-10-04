@@ -36,10 +36,14 @@ class BlogsController extends Controller
     {
         $data = $request->all();
         $blogs = new Blogs();
+        $blogs->title = $data['title'];
         $blogs->description= $data['description'];
         $blogs->status = $data['status'];
         $blogs->images = $data['images'];
         $blogs->content = $data['content'];
+
+        $blogs->save();
+         return redirect()->back();
     }
 
     /**
