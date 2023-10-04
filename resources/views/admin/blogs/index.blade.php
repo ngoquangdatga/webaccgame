@@ -21,8 +21,51 @@
                     @endif
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <a href="{{route('blogs.create')}}" class="bbt btn-success">Thêm blogs game</a>
-                   
-                     
+                        
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên tiêu đề</th>
+                                    <th>Slug </th>
+                                    <th>Mô tả</th>
+                                    <th>Hiển thị</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Quản lý</th>
+                                    <th></th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                @foreach($blogs as $key =>$blogs)
+                                <tr>
+                                    <td>{{$key}}</td>
+                                    <td>{{$blogs->title}}</td>
+                                    <td>{{$blogs->slug}}</td>
+                                    <td>{{$blogs->description}}</td>
+                                    <td>
+                                        @if($blogs->atatus==0)
+                                        Không hiển thị
+                                        @else
+                                        Hiển thị
+                                        @endif
+                                    </td>
+                                    <td><img src="{{asset('/uploads/blogs/'.$blogs->images)}}" height="50%" weight="50%"></td>
+                                    <td>
+                                        <form action="{{route('blogs.destroy',$blogs->id)}}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button onclick="return confirm('Ban co muon xoa blogs game nay khong?');" class="btn btn-dark">Delete</button>
+                                        </form>
+
+                                        <a href="{{route('blogs.edit',$blogs->id)}}" class="btn btn-warning">Sửa</a>
+                                    </td>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                       
                     </div>
                 </div>
             </div>

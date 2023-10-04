@@ -13,7 +13,10 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        return view('admin.blogs.index');
+        $blogs = Blogs::orderBy('id', 'DESC')->paginate(5);
+        return view('admin.blogs.index', compact('blogs'));
+
+    
     }
 
     /**
@@ -42,6 +45,16 @@ class BlogsController extends Controller
         $blogs->images = $data['images'];
         $blogs->content = $data['content'];
 
+        $get_images = $request->images;
+        if($get_images){
+            $path = '/uploads/blogs';
+            $get_name_images = $get_images->getClientOriginalName();
+            $name_images = current(explode('.', $get_name_images));
+            $new_images = $name_images. rand(0, 999). '.'. $get_images->getClientOriginalExtension();
+            $get_images->move($path, $new_images);
+            $blogs->images = $new_images;
+        }
+
         $blogs->save();
          return redirect()->back();
     }
@@ -65,7 +78,8 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blogs = Blogs::find($id);
+        return view('admin.blogs.edit', compact('blogs'));
     }
 
     /**
@@ -87,7 +101,9 @@ class BlogsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {  
+    
+        $blogs = Blogs::find($id)->delete();
+        return redirect()->route('blogs.index');
     }
 }

@@ -37,12 +37,7 @@
         <!-- Page Content -->
         
     </div>
-    <!-- <script src="//cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script>
-    <script>
-               
-                CKEDITOR.replace('content_blogs');
-                CKEDITOR.replace('desc_blogs');
-    </script> -->
+
     <script type="text/javascript">
     
          function ChangeToSlug()
@@ -77,7 +72,7 @@
             document.getElementById('convert_slug').value = slug;
         }   
 </script>
-<script src="../ckeditor.js"></script>
+
 
 </body>
 
