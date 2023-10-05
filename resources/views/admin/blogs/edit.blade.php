@@ -33,7 +33,6 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Slug</label>
                                 <input type="text" class="form-control" required value="{{$blogs->slug}}" id="convert_slug" name="slug" placeholder="....">
-
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Images</label>
@@ -68,6 +67,5 @@
                 </div>
             </div>
         </div>
-        
     </x-slot>
 </x-app-layout>

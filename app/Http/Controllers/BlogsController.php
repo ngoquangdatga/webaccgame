@@ -46,11 +46,13 @@ class BlogsController extends Controller
         $blogs->content = $data['content'];
 
         $get_images = $request->images;
+        
         if($get_images){
-            $path = '/uploads/blogs';
+            
+            $path = "uploads/blogs/";
             $get_name_images = $get_images->getClientOriginalName();
             $name_images = current(explode('.', $get_name_images));
-            $new_images = $name_images. rand(0, 999). '.'. $get_images->getClientOriginalExtension();
+            $new_images = $name_images . rand(0, 99) . '.' . $get_images->getClientOriginalExtension();
             $get_images->move($path, $new_images);
             $blogs->images = $new_images;
         }
