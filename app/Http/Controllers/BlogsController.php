@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Blogs;
 class BlogsController extends Controller
@@ -14,6 +14,7 @@ class BlogsController extends Controller
     public function index()
     {
         $blogs = Blogs::orderBy('id', 'DESC')->paginate(5);
+        // dd(Auth::user());
         return view('admin.blogs.index', compact('blogs'));
 
     
@@ -40,6 +41,7 @@ class BlogsController extends Controller
         $data = $request->all();
         $blogs = new Blogs();
         $blogs->title = $data['title'];
+        $blogs->slug = $data['slug'];
         $blogs->description= $data['description'];
         $blogs->status = $data['status'];
         $blogs->images = $data['images'];
@@ -93,7 +95,28 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $blogs = Blogs::find($id);
+        $blogs->title = $data['title'];
+        $blogs->slug = $data['slug'];
+        $blogs->description= $data['description'];
+        $blogs->status = $data['status'];
+        $blogs->content = $data['content'];
+
+        $get_images = $request->images;
+        
+        if($get_images){
+            
+            $path = "uploads/blogs/";
+            $get_name_images = $get_images->getClientOriginalName();
+            $name_images = current(explode('.', $get_name_images));
+            $new_images = $name_images . rand(0, 99) . '.' . $get_images->getClientOriginalExtension();
+            $get_images->move($path, $new_images);
+            $blogs->images = $new_images;
+        }
+
+        $blogs->save();
+         return redirect()->back();
     }
 
     /**

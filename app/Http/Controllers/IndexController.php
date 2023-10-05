@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Slider;
+use App\Models\Blogs;
 class IndexController extends Controller
 {
     public function home(){
@@ -29,5 +30,11 @@ class IndexController extends Controller
     public function danhmuccon($slug){
         $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
         return view('pages.sub_category',compact('slug','slider'));
+    }
+  
+    public function blogs(){
+        $blogs = Blogs::orderBy('id','DESC')->paginate(30);
+        $slider = Slider::orderBy('id','DESC')->where('status',1)->get( ); 
+        return view('pages.blogs',compact('slider','blogs'));
     }
 }
