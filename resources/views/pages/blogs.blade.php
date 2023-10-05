@@ -33,29 +33,26 @@
          <div class="row">
             <div class="col-md-9">
                <div class="art-list">
+                  @foreach($blogs as $key => $blog)
                   <div class="a-item">
-                     <div class="thumbnail-image img-thumbnail"><a href="/blog/dia-chi-nap-game-gia-re-online-chat-luong-nhat-hien-nay"><img src="/storage/images/qfj2jrAzgn_1643103013.jpg" alt="png-image"></a></div>
+                     <div class="thumbnail-image img-thumbnail"><a href="/blog/dia-chi-nap-game-gia-re-online-chat-luong-nhat-hien-nay">
+                        <img src="{{asset('/uploads/blogs/'.$blog->images)}}" alt="png-image"></a></div>
                      <div class="info">
                         <div class="article_title ">
-                           <h2><a href="/blog/dia-chi-nap-game-gia-re-online-chat-luong-nhat-hien-nay" style="text-transform: initial;">Địa chỉ nạp game giá rẻ online, chất lượng nhất hiện nay</a></h2>
+                           <h2><a href="{{route('blogs_detail',[$blog->slug])}}" style="text-transform: initial;">{{$blog->title}}</a></h2>
                         </div>
                         <div class="article_cat_date">
                            <div style="display: inline-block;margin-right: 15px"><i class="fa fa-calendar" aria-hidden="true"></i> 25/01/2022</div>
                            <div style="display: inline-block"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <a href="/blog/huong-dan" title="Hướng Dẫn">Hướng Dẫn</a></div>
                         </div>
-                        <div class="article_description hidden-xs">Địa chỉ nạp game giá rẻ online, chất lượng uy tín nhất thị trường hiện nay</div>
+                        <div class="article_description hidden-xs">{{$blog->description}}</div>
                      </div>
                   </div>
+                  @endforeach
                </div>
                <div class="data_paginate paging_bootstrap paginations_custom" style="text-align: center">
                   <ul class="pagination pagination-sm">
-                     <li class="page-item disabled"><span class="page-link">«</span></li>
-                     <li class="page-item active"><span class="page-link">1</span></li>
-                     <li class="page-item"><a class="page-link" href="https://nick.vn/blog?page=2">2</a></li>
-                     <li class="page-item"><a class="page-link" href="https://nick.vn/blog?page=3">3</a></li>
-                     <li class="page-item disabled hidden-xs"><span class="page-link">...</span></li>
-                     <li class="page-item hidden-xs"><a class="page-link" href="https://nick.vn/blog?page=41">41</a></li>
-                     <li class="page-item"><a class="page-link" href="https://nick.vn/blog?page=2" rel="next">»</a></li>
+                  {{$blogs->links('pagination::bootstrap-4')}}
                   </ul>
                </div>
             </div>

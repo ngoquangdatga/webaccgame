@@ -23,6 +23,7 @@ Route::get('/dich-vu/{slug}',[IndexController::class,'dichvucon'])->name('dichvu
 Route::get('/danh-muc-game/{slug}',[IndexController::class,'danhmuc_game'])->name('danhmucgame');
 Route::get('/danh-muc/{slug}',[IndexController::class,'danhmuccon'])->name('danhmuccon');
 Route::get('/blog',[IndexController::class,'blogs'])->name('blog');
+Route::get('/blogs/{slug}',[IndexController::class,'blogs_detail'])->name('blogs_detail');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
