@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
-use App\Models\Blogs;
-class BlogsController extends Controller
+use App\Models\Videos;
+
+class VideosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +14,8 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        $blogs = Blogs::orderBy('id', 'DESC')->paginate(5);
-        // dd(Auth::user());
-        return view('admin.blogs.index', compact('blogs'));
-
-    
+        $videos = Videos::orderBy('id', 'DESC')->paginate(15);
+        return view('admin.videos.index',compact('videos'));
     }
 
     /**
@@ -27,7 +25,7 @@ class BlogsController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        return view('admin.videos.create');
     }
 
     /**
@@ -39,28 +37,29 @@ class BlogsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $blogs = new Blogs();
-        $blogs->title = $data['title'];
-        $blogs->slug = $data['slug'];
-        $blogs->description= $data['description'];
-        $blogs->status = $data['status'];
-        $blogs->images = $data['images'];
-        $blogs->content = $data['content'];
+        $videos = new Videos();
+        $videos->title = $data['title'];
+        $videos->link = $data['link'];
+        $videos->slug = $data['slug'];
+        $videos->description= $data['description'];
+        $videos->status = $data['status'];
+        
 
         $get_images = $request->images;
         
         if($get_images){
             
-            $path = "uploads/blogs/";
+            $path = "uploads/videos/";
             $get_name_images = $get_images->getClientOriginalName();
             $name_images = current(explode('.', $get_name_images));
             $new_images = $name_images . rand(0, 99) . '.' . $get_images->getClientOriginalExtension();
             $get_images->move($path, $new_images);
-            $blogs->images = $new_images;
+            $videos->images = $new_images;
         }
 
-        $blogs->save();
-         return redirect()->back();
+        $videos->save();
+        //  return redirect()->route('videos.index');
+        return redirect()->route('videos.index');
     }
 
     /**
@@ -82,8 +81,8 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        $blogs = Blogs::find($id);
-        return view('admin.blogs.edit', compact('blogs'));
+        $videos = Videos::find($id);
+        return view('admin.videos.edit',compact('videos'));
     }
 
     /**
@@ -96,28 +95,28 @@ class BlogsController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $blogs = Blogs::find($id);
-        $blogs->title = $data['title'];
-        // $blogs->kind_of_blog = $data['kind_of_blog'];
-        $blogs->slug = $data['slug'];
-        $blogs->description= $data['description'];
-        $blogs->status = $data['status'];
-        $blogs->content = $data['content'];
+        $videos = Videos::find($id);
+        $videos->title = $data['title'];
+        $videos->link = $data['link'];
+        $videos->slug = $data['slug'];
+        $videos->description= $data['description'];
+        $videos->status = $data['status'];
+        
 
         $get_images = $request->images;
         
         if($get_images){
             
-            $path = "uploads/blogs/";
+            $path = "uploads/videos/";
             $get_name_images = $get_images->getClientOriginalName();
             $name_images = current(explode('.', $get_name_images));
             $new_images = $name_images . rand(0, 99) . '.' . $get_images->getClientOriginalExtension();
             $get_images->move($path, $new_images);
-            $blogs->images = $new_images;
+            $videos->images = $new_images;
         }
 
-        $blogs->save();
-         return redirect()->back();
+        $videos->save();
+        return redirect()->route('videos.index');
     }
 
     /**
@@ -127,9 +126,8 @@ class BlogsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {  
-    
-        $blogs = Blogs::find($id)->delete();
-        return redirect()->route('blogs.index');
+    {
+        $videos = Videos::find($id)->delete();
+        return redirect()->route('videos.index');
     }
 }

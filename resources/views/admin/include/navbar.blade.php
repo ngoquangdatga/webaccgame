@@ -37,7 +37,7 @@
                     <a class="nav-link" href="{{route('blogs.index')}}">Blogs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('video.create')}}">Blogs</a>
+                    <a class="nav-link" href="{{route('videos.create')}}">Videos</a>
                 </li>
                 <!-- <li class="nav-item dropdown">
        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

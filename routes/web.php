@@ -6,6 +6,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\VideosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +25,8 @@ Route::get('/dich-vu/{slug}',[IndexController::class,'dichvucon'])->name('dichvu
 Route::get('/danh-muc-game/{slug}',[IndexController::class,'danhmuc_game'])->name('danhmucgame');
 Route::get('/danh-muc/{slug}',[IndexController::class,'danhmuccon'])->name('danhmuccon');
 Route::get('/blog',[IndexController::class,'blogs'])->name('blog');
-Route::get('/blogs/{slug}',[IndexController::class,'blogs_detail'])->name('blogs_detail');
+Route::get('/post/{slug}',[IndexController::class,'blogs_detail'])->name('blogs_detail');
+Route::get('/video-highlight',[IndexController::class,'video_highlight'])->name('video-highlight');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -38,3 +41,4 @@ require __DIR__.'/auth.php';
 Route::resource('/category',CategoryController::class);
 Route::resource('/slider',sliderController::class);
 Route::resource('/blogs',BlogsController::class);
+Route::resource('/videos',VideosController::class);

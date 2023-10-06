@@ -270,18 +270,22 @@
                               <li class="c-menu-type-classic"><a target='_blank' rel="" href="https://nick.vn/blog/huong-dan-nap-tien-tu-dong-bang-atm-vao-nickvn" class="">Hướng dẫn nạp ATM tự động</a></li>
                            </ul>
                         </li>
+                        <li><a href="{{route('video-highlight')}}" class="c-link dropdown-toggle">
+                                 Video</a>
+                        </li>
                         <li class="c-menu-type-classic">
                            <a  rel=""  href="#" class="c-link dropdown-toggle ">Tin tức<span class="c-arrow c-toggler"></span></a>
                            <ul id="children-of-42" class="dropdown-menu c-menu-type-classic c-pull-left " >
                               <li class="c-menu-type-classic"><a  rel="Blogs Game" href="/blog" class="">Blogs</a></li>
                               
-                              <!-- <li class="c-menu-type-classic"><a  rel="" href="/uy-tin-cua-shop" class="">UY T&Iacute;N CỦA SHOP</a></li>
+                              <li class="c-menu-type-classic"><a  rel="" href="/uy-tin-cua-shop" class="">UY T&Iacute;N CỦA SHOP</a></li>
                               <li class="c-menu-type-classic"><a  rel="" href="/danh-sach-gdv-group" class="">Danh S&aacute;ch GDV group</a></li>
                               <li class="c-menu-type-classic"><a  rel="" href="/dich-vu-game" class="">Dịch Vụ Game</a></li>
                               <li class="c-menu-type-classic"><a  rel="" href="https://nick.vn/blog/dieu-khoan-su-dung-website-nickvn" class="">Điều khoản sử dụng website</a></li>
-                              <li class="c-menu-type-classic"><a  rel="" href="https://nick.vn/blog/chinh-sach-tai-nickvn" class="">Ch&iacute;nh s&aacute;ch tại Nick.vn</a></li> -->
+                              <li class="c-menu-type-classic"><a  rel="" href="https://nick.vn/blog/chinh-sach-tai-nickvn" class="">Ch&iacute;nh s&aacute;ch tại Nick.vn</a></li>
                            </ul>
                         </li>
+                    
                         <li><a href="/login" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
                            <i class="icon-user"></i> Đăng nhập</a>
                         </li>
@@ -290,7 +294,7 @@
                         </li>
                      </ul>
                   </nav>
-                  <nav class="menu-main-mobile c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold hidden-md hidden-lg">
+                  <!-- <nav class="menu-main-mobile c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold hidden-md hidden-lg">
                      <ul  class="nav navbar-nav c-theme-nav">
                         <li class="c-menu-type-classic"><a  rel=""  href="/" class="c-link dropdown-toggle ">Trang chủ</a></li>
                         <li class="c-menu-type-classic"><a  rel=""  href="/dich-vu" class="c-link dropdown-toggle ">Dịch vụ game</a></li>
@@ -321,7 +325,7 @@
                            <i class="icon-key icons"></i> Đăng ký</a>
                         </li>
                      </ul>
-                  </nav>
+                  </nav> -->
                   <!-- END: MEGA MENU -->
                   <!-- END: LAYOUT/HEADERS/MEGA-MENU -->
                   <!-- END: HOR NAV -->
