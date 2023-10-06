@@ -4,7 +4,7 @@
    <div class="c-layout-breadcrumbs-1 c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both">
       <div class="container">
          <div class="c-page-title c-pull-left">
-            <h3 class="c-font-uppercase c-font-sbold"><a href="#" title="Blog tin tức">{{$blog->title}}</a></h3>
+            <h3 class="c-font-uppercase c-font-sbold"><a href="" title="Blog tin tức"></a></h3>
             
          </div>
          <ul class="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
@@ -12,7 +12,7 @@
             <li>/</li>
             <li>
                <a href="{{route('blog')}}">
-                  <h1>Blog tin tức</h1>
+                  <h1>Blogs tin tức</h1>
                </a>
             </li>
          </ul>
@@ -23,8 +23,7 @@
         
          <div class="row">
             <div class="col-md-9">
-               
-             
+            
             </div>
             <div class="col-md-3">
                <div class="c-content-ver-nav">

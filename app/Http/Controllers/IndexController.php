@@ -37,9 +37,9 @@ class IndexController extends Controller
         $slider = Slider::orderBy('id','DESC')->where('status',1)->get( ); 
         return view('pages.blogs',compact('slider','blogs'));
     }
-    public function blog_detail($slug){
-        $blogs = Blogs::where('slug','slug')->first(30);
+    public function blogs_detail($slug){
+        $blog = Blogs::where('slug','$slug')->first();
         $slider = Slider::orderBy('id','DESC')->where('status',1)->get( ); 
-        return view('pages.blogs',compact('slider','blogs'));
+        return view('pages.blog_detail',compact('slider','blog'));
     }
 }

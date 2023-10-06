@@ -56,6 +56,12 @@
                                     <option value="0">Không hiển thị</option>
 
                                 </select>
+                                <label for="exampleFormControlSelect1">Loại tin</label>
+                                <select class="form-control" name="status">
+                                    <option value="blog">Blogs</option>
+                                    <option value="huongdan">Hướng Dẫn</option>
+
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Add Blogs</button>
                         </form>

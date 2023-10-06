@@ -41,6 +41,7 @@ class BlogsController extends Controller
         $data = $request->all();
         $blogs = new Blogs();
         $blogs->title = $data['title'];
+        // $blogs->kind_of_blog = $data['kind_of_blog'];
         $blogs->slug = $data['slug'];
         $blogs->description= $data['description'];
         $blogs->status = $data['status'];
@@ -98,6 +99,7 @@ class BlogsController extends Controller
         $data = $request->all();
         $blogs = Blogs::find($id);
         $blogs->title = $data['title'];
+        // $blogs->kind_of_blog = $data['kind_of_blog'];
         $blogs->slug = $data['slug'];
         $blogs->description= $data['description'];
         $blogs->status = $data['status'];

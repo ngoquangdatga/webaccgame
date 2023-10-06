@@ -31,6 +31,7 @@
                                     <th>Mô tả</th>
                                     <th>Hiển thị</th>
                                     <th>Hình ảnh</th>
+                                    <!-- <th>Loại bài viết</th> -->
                                     <th>Quản lý</th>
                                     <th></th>
                                 </tr>
@@ -51,6 +52,11 @@
                                         @endif
                                     </td>
                                     <td><img src="{{asset('/uploads/blogs/'.$blogs->images)}}" height="50%" weight="50%"></td>
+                                    <!-- @if($blogs->kind_of_blog == 'blogs')
+                                        Blogs
+                                        @else
+                                        Hướng dẫn sử dụng
+                                        @endif -->
                                     <td>
                                         <form action="{{route('blogs.destroy',$blogs->id)}}" method="POST">
                                             @method('DELETE')

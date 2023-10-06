@@ -62,6 +62,18 @@
                                     <option selected value="1">Hiển thị</option>
                                     @endif
                                 </select>
+                                <label for="exampleFormControlSelect1">Loại Tin</label>
+                                <select class="form-control" name="kind_of_blog">
+                                    @if($blog->kind_of_blog=='blog')
+                                    <option selected value="blog">Blogs</option>
+                                    <option value="huongdan">Hướng Dẫn</option>
+
+                                    @else
+                                    <option value="blog">Blogs</option>
+                                    <option selected value="huongdan">Hướng Dẫn</option>
+
+                                    @endif
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
