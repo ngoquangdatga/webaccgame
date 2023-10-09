@@ -44,7 +44,7 @@
                                     <td>{{$videos->title}}</td>
                          
                                     <td>{{$videos->slug}}</td>
-                                    
+                                   
                                     <td>{{$videos->description}}</td>
                                     <td>
                                         @if($videos->atatus==0)
@@ -54,6 +54,7 @@
                                         @endif
                                     </td>
                                     <td><img src="{{asset('/uploads/videos/'.$videos->images)}}" height="50%" weight="50%"></td>
+                                   <td><span height="100" width="150">{!!$videos->link!!}</span></td>
                                     <td>
                                         <form action="{{route('videos.destroy',$videos->id)}}" method="POST">
                                             @method('DELETE')

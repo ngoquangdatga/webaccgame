@@ -27,6 +27,7 @@ Route::get('/danh-muc/{slug}',[IndexController::class,'danhmuccon'])->name('danh
 Route::get('/blog',[IndexController::class,'blogs'])->name('blog');
 Route::get('/post/{slug}',[IndexController::class,'blogs_detail'])->name('blogs_detail');
 Route::get('/video-highlight',[IndexController::class,'video_highlight'])->name('video-highlight');
+Route::post('/show_videos',[IndexController::class,'show_videos'])->name('show_videos');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

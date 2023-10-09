@@ -29,19 +29,17 @@
                                 <label for="exampleInputEmail1">Title</label>
                                 <input type="text" class="form-control" id="slug" required onkeyup="ChangeToSlug();" name="title" placeholder="....">
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="exampleInputEmail1">Link</label>
                                 <input type="text" class="form-control" name="link" required placeholder="link Youtobe...">
-                            </div>
+                            </div> 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Slug</label>
                                 <input type="text" class="form-control" required name="slug" id="convert_slug" placeholder="....">
-
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Images</label>
                                 <input type="file" class="form-control-file" required name="images">
-
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Description</label>
@@ -54,10 +52,9 @@
                                 <select class="form-control" name="status">
                                     <option value="1">Hiển thị</option>
                                     <option value="0">Không hiển thị</option>
-
-                                </select>
-                                
+                                </select>                               
                             </div>
+                          
                             <button type="submit" class="btn btn-primary">Add Videos</button>
                         </form>
                     </div>

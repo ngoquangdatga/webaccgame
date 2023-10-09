@@ -8,6 +8,7 @@
       <link rel="shortcut icon" href="/storage/images/TL2fjkL38e_1610595242.jpg" type="image/x-icon">
       <link rel="canonical" href="https://nick.vn"/>
       <meta content="" name="author"/>
+      <meta name="csrf-token" content="{{csrf_token()}}">
       <meta property="og:type" content="website"/>
       <meta property="og:url" content=""/>
       <meta property="og:title" content="Web Bán Nick, Có Đủ Mọi Loại Game Hót Thịnh Hành Nick.vn"/>
@@ -1467,5 +1468,26 @@
          
          gtag('config', 'G-MZBLL7R7EG');
       </script>
+   <script>
+       function video_highlight($id){
+        //alert($id);
+      var id=$id;
+         $.ajax({
+               url: "{{route('show_videos')}}",
+               method: "POST",
+               dataType:"JSON",
+               data:{id:id},
+               headers:{
+                  'x-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+               },
+               success:function(data){
+                  $("#videos_title").html(data.videos_title);
+                  $("#videos_description").html(data.videos_description);
+                  $("#videos_link").html(data.videos_link);
+                  $('#videos_hightlight').modal('show'); 
+            },      
+         });
+       }
+   </script>
    </body>
 </html>
