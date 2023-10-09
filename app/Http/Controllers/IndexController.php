@@ -46,7 +46,7 @@ class IndexController extends Controller
     public function show_videos(Request $request){
         $data = $request->all();
         echo $data;
-        dd($data);
+        
         $videos = Videos::find($data['id']);
         $output['videos_title'] = $videos->title;
         $output['videos_description'] = $videos->description;

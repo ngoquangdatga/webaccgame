@@ -7,6 +7,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\VideosController;
+use App\Http\Controllers\PhukienController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +46,4 @@ Route::resource('/category',CategoryController::class);
 Route::resource('/slider',sliderController::class);
 Route::resource('/blogs',BlogsController::class);
 Route::resource('/videos',VideosController::class);
+Route::resource('/phukien',PhukienController::class);
