@@ -52,7 +52,7 @@
                                         <form action="{{route('slider.destroy',$sli->id)}}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button onclick="return confirm('Ban co muon xoa slider game nay khong?');" class="btn btn-dark">Delete</button>
+                                            <button onclick="return confirm('Ban co muon xoa slider game nay khong?');" class="btn btn-danger">Delete</button>
                                         </form>
 
                                         <a href="{{route('slider.edit',$sli->id)}}" class="btn btn-warning">Sửa</a>

@@ -59,7 +59,7 @@
                                         <form action="{{route('videos.destroy',$videos->id)}}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button onclick="return confirm('Ban co muon xoa video game nay khong?');" class="btn btn-dark">Delete</button>
+                                            <button onclick="return confirm('Ban co muon xoa video game nay khong?');" class="btn btn-danger">Delete</button>
                                         </form>
 
                                         <a href="{{route('videos.edit',$videos->id)}}" class="btn btn-warning">Sửa</a>

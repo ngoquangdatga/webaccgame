@@ -54,7 +54,7 @@
                                         <form action="{{route('category.destroy',$cate->id)}}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button onclick="return confirm('Ban co muon xoa danh muc game nay khong?');" class="btn btn-dark">Delete</button>
+                                            <button onclick="return confirm('Ban co muon xoa danh muc game nay khong?');" class="btn btn-danger">Delete</button>
                                         </form>
 
                                         <a href="{{route('category.edit',$cate->id)}}" class="btn btn-warning">Sửa</a>

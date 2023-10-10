@@ -61,7 +61,7 @@
                                         <form action="{{route('blogs.destroy',$blogs->id)}}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button onclick="return confirm('Ban co muon xoa blogs game nay khong?');" class="btn btn-dark">Delete</button>
+                                            <button onclick="return confirm('Ban co muon xoa blogs game nay khong?');" class="btn btn-danger">Delete</button>
                                         </form>
 
                                         <a href="{{route('blogs.edit',$blogs->id)}}" class="btn btn-warning">Sửa</a>

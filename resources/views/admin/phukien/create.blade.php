@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Thuộc game</label>
-                                <select class="form-control" name="belongtogame">
+                                <select class="form-control" name="category_id">
                                     @foreach($category as $key => $cate)
                                     <option value="{{$cate->id}}">{{$cate->title}}</option>
                                    @endforeach 

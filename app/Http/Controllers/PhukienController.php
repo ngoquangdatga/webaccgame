@@ -14,7 +14,8 @@ class PhukienController extends Controller
      */
     public function index()
     {
-        return view('admin.phukien.index');
+        $phukien = Phukien::orderBy('id','DESC')->paginate(20);
+        return view('admin.phukien.index',compact('phukien'));
     }
 
     /**
@@ -24,8 +25,10 @@ class PhukienController extends Controller
      */
     public function create()
     {
-        $category = Category::orderBy('id', 'DESC')->get();
-        return view('admin.phukien.create',compact('category'));
+        // $category = Category::with('category_id')->orderBy('id', 'DESC')->get();
+        // return view('admin.phukien.create',compact('category'));
+      $category = Category::orderBY('id', 'DESC')->get();
+      return view('admin.phukien.create', compact('category'));
     }
 
     /**
@@ -39,12 +42,12 @@ class PhukienController extends Controller
         $data = request()->all();
         $phukien = new Phukien();
         $phukien->title = $data['title'];
-        $phukien->belongtogame = $data['belongtogame'];
+        $phukien->category_id = $data['category_id'];
         $phukien->title = $data['title'];
         $phukien->status = $data['status'];
 
         $phukien->save();
-        return redirect()->back();
+        return redirect()->route('phukien.index');
     }
 
     /**
@@ -66,7 +69,9 @@ class PhukienController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::with('category')->orderBy('id', 'DESC')->get();
+        $phukien = Phukien::find($id);
+        return view('admin.phukien.edit',compact('category','phukien'));
     }
 
     /**
@@ -78,7 +83,15 @@ class PhukienController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = request()->all();
+        $phukien = Phukien::find($id);
+        $phukien->title = $data['title'];
+        $phukien->category_id = $data['category_id'];
+       
+        $phukien->title = $data['title'];
+        $phukien->status = $data['status'];
+        $phukien->save();
+        return redirect()->route('phukien.index');
     }
 
     /**
@@ -89,6 +102,7 @@ class PhukienController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $phukien = Phukien::find($id)->delete();
+        return redirect()->route('phukien.index');
     }
 }

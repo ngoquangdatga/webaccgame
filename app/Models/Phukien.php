@@ -11,6 +11,9 @@ class Phukien extends Model
     public $timestamps = false;
     protected $table = 'phukien';
     protected $fillable =[
-        'title','status'
+        'title','status','category_id'
     ];
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
