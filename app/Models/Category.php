@@ -13,7 +13,10 @@ class Category extends Model
     protected $fillable =[
         'title','description','images','status','order_category'
     ];
-    public function category(){
-        return $this->belongsTo(category::class);
+    public function phukien(){
+        return $this->belongsTo(Phukien::class);
+    }
+    public function nick(){
+        return $this->hasMany(Nick::class);
     }
 }

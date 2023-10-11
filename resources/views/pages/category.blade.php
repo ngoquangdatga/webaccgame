@@ -7,8 +7,8 @@
             <div class="container">
                <div class="row">
                   <div class="alert alert-info" role="alert">
-                    <h2 class="alert-heading">Dịch mục game Liên Quân</h2>
-                    <p></p><p><span style="color:#e74c3c"><strong>Dịch mục game Liên Quân . </strong></span><strong>Dịch mục game Liên Quân bán skin và tướng giá rẻ&nbsp;</strong></p><p></p>
+                    <h2 class="alert-heading">{{$category->title}}</h2>
+                    <p></p><p><span style="color:#e74c3c"><strong>Danh mục game:</strong></span><strong>{{$category->description}}</strong></p><p></p>
                 </div>
                 <!-- <div class="row" style="margin-bottom: 15px">
             <div class="m-l-10 m-r-10">
@@ -35,7 +35,7 @@
                <div class="c-content-client-logos-slider-1  c-bordered" data-slider="owl">
                   <!-- Begin: Title 1 component -->
                   <div class="c-content-title-1">
-                     <h3 class="c-center c-font-uppercase c-font-bold">Dịch mục game Liên Quân</h3>
+                     <h3 class="c-center c-font-uppercase c-font-bold">{{$category->title}}</h3>
                      <div class="c-line-center c-theme-bg"></div>
                   </div>
                   <div class="row row-flex-safari game-list">
@@ -43,12 +43,12 @@
                         <div class="classWithPad">
                            <div class="news_image">
                               <img style="position: absolute;max-width: 79px;height: auto;top: -5px;right: -6px;z-index: 1122;" src="{{asset('frontend/images/giam.png')}}"/>
-                              <a href="{{route('danhmuccon','nick-lien-quan')}}" title="Danh Mục Game Free Fire" class="">
-                              <img src="{{asset('frontend/images/danhmuc.gif')}}" alt="Danh Mục Game Free Fire"></a>
+                              <a href="{{route('danhmuccon',[$category->slug])}}" title="{{$category->title}}" class="">
+                              <img src="{{asset('/uploads/category/'.$category->images)}}" alt="{{$category->title}}"></a>
                            </div>
                            <div class="news_title">
                               <h2>
-                                 <a href="{{route('danhmuccon','nick-lien-quan')}}" title="Danh Mục Game Liên Quân">Danh Mục Game Liên Quân</a>
+                                 <a href="{{route('danhmuccon',[$category->slug])}}" title="{{$category->title}}">{{$category->title}}</a>
                               </h2>
                            </div>
                            <div class="news_description">
@@ -63,7 +63,7 @@
                               <div class="row">
                                  <div class="col-xs-12">
                                     <div class="custom72 view">
-                                       <a href="{{route('danhmuccon','nick-lien-quan')}}" class="" title="Danh Mục Game Liên Quân">
+                                       <a href="{{route('danhmuccon',[$category->slug])}}" class="" title="{{$category->title}}">
                                           &nbsp;
                                           <style type="text/css">
                                              .custom72{

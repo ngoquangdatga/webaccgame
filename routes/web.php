@@ -8,7 +8,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\PhukienController;
-
+use App\Http\Controllers\NickController;
 
 
 /*
@@ -26,7 +26,7 @@ Route::get('/',[IndexController::class,'home']);
 Route::get('/dich-vu',[IndexController::class,'dichvu'])->name('dichvu');
 Route::get('/dich-vu/{slug}',[IndexController::class,'dichvucon'])->name('dichvucon');
 Route::get('/danh-muc-game/{slug}',[IndexController::class,'danhmuc_game'])->name('danhmucgame');
-Route::get('/danh-muc/{slug}',[IndexController::class,'danhmuccon'])->name('danhmuccon');
+Route::get('/accgame/{slug}',[IndexController::class,'acc'])->name('danhmuccon');
 Route::get('/blog',[IndexController::class,'blogs'])->name('blog');
 Route::get('/post/{slug}',[IndexController::class,'blogs_detail'])->name('blogs_detail');
 Route::get('/video-highlight',[IndexController::class,'video_highlight'])->name('video-highlight');
@@ -47,3 +47,5 @@ Route::resource('/slider',sliderController::class);
 Route::resource('/blogs',BlogsController::class);
 Route::resource('/videos',VideosController::class);
 Route::resource('/phukien',PhukienController::class);
+Route::resource('/nick',NickController::class);
+Route::post('/choose_category',[NickController::class,'choose_category'])->name('choose_category');

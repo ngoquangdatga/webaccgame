@@ -20,13 +20,14 @@ class IndexController extends Controller
         $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
         return view('pages.services',compact('slider'));
     }
-    public function dichvucon($slug){
+    public function acc($slug){
         $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
-        return view('pages.sub_services',compact('slug','slider'));
+        return view('pages.acc',compact('slug','slider'));
     }
     public function danhmuc_game($slug){
         $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
-        return view('pages.category',compact('slider'));
+        $category = Category::where('slug',$slug)->first();
+        return view('pages.category',compact('slider','category'));
     }
     public function danhmuccon($slug){
         $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
