@@ -23,9 +23,10 @@
                         <a href="{{route('nick.create')}}" class="bbt btn-success">Thêm nick game</a>
                         <table class="table table-striped">
                             <thead>
-                            <tr>
+                                <tr>
                                     <th>ID</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Tên nick</th>
+                                    <th>Thư viện ảnh</th>
                                     <th>Mã số</th>
                                     <th>Mô tả</th>
                                     <th>Hiển thị</th>
@@ -33,7 +34,7 @@
                                     <th>Thuộc nick</th>
                                     <th>Quản lý</th>
                                     <th></th>
-                            </tr>
+                                </tr>
 
                             </thead>
                             <tbody>
@@ -41,6 +42,13 @@
                                 <tr>
                                     <td>{{$key}}</td>
                                     <td>{{$nick->title}}</td>
+                                    <td><a href="{{route('gallery.edit',[$nick->id])}}" class="btn btn-success btn-sm">Thêm thư viện ảnh</a>
+                                        @if($nick->gallery_count == 0)
+                                        <span class="badge badge-danger">Chưa có ảnh</span>
+                                        @else
+                                        <span class="badge badge-dark">{{$nick->gallery_count}} ảnh</span>
+                                        @endif
+                                    </td>
                                     <td>#{{$nick->ms}}</td>
                                     <td>{{$nick->description}}</td>
                                     <td>
@@ -66,7 +74,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        
+                        {{$nicks->links('pagination::bootstrap-4')}}
                     </div>
                 </div>
             </div>

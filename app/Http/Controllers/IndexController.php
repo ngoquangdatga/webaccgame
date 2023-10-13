@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Slider;
 use App\Models\Blogs;
 use App\Models\Videos;
+use App\Models\Nick;
+use App\Models\Gallery;
 class IndexController extends Controller
 {
     public function home(){
@@ -21,8 +23,18 @@ class IndexController extends Controller
         return view('pages.services',compact('slider'));
     }
     public function acc($slug){
+        $category =Category::where('slug',$slug)->first();
+         $nicks = Nick::where('category_id',$category->id)->where('status',1)->paginate(16);
         $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
-        return view('pages.acc',compact('slug','slider'));
+        return view('pages.acc',compact('slug','slider','nicks','category'));
+    }
+    public function detail_acc($ms){
+        $nicks_game = Nick::Where('ms',$ms)->first();
+        $nicks = Nick::find($nicks_game->id);
+        $gallery = Gallery::where('nick_id',$nicks->id)->orderBy('id','DESC')->get();
+        $category = Category::where('id',$nicks->category_id)->first();
+        $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
+        return view('pages.accgame',compact('slider','nicks','category','gallery'));
     }
     public function danhmuc_game($slug){
         $slider = Slider::orderBy('id', 'DESC')->where('status',1)->get( ); 
