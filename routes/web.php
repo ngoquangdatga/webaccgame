@@ -10,6 +10,7 @@ use App\Http\Controllers\VideosController;
 use App\Http\Controllers\PhukienController;
 use App\Http\Controllers\NickController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\wheelController;
 use App\Models\Gallery;
 
 /*
@@ -52,3 +53,4 @@ Route::resource('/phukien',PhukienController::class);
 Route::resource('/nick',NickController::class);
 Route::resource('/gallery',GalleryController::class);
 Route::post('/choose_category',[NickController::class,'choose_category'])->name('choose_category');
+Route::resource('/wheel',wheelController::class);
