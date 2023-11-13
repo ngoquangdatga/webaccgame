@@ -1,0 +1,8 @@
+FROM siomkin/8.1-fpm-alpine
+RUN curl -sS https://getcomposer.org/installer | php \
+        && mv composer.phar /usr/local/bin/composer
+
+    Run mkdir /applications && chown 1000:1000 -R /applications
+
+    WORKDIR /applications
+MAINTAINER ngoquangdat867@gmail.com
